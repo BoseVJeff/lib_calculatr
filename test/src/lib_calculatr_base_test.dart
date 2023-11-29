@@ -164,6 +164,17 @@ void checkExpression() {
       // print(astTermExpression);
       expect(astTermExpression.solve(), equals(50));
     });
+    test('Verify -5*10', () {
+      // Setting up the expression
+      AstTermExpression astTermExpression = AstTermExpression.fromList([
+        AstTermSubtract(),
+        AstTermNum(5),
+        AstTermMultiply(),
+        AstTermNum(10),
+      ]);
+      // print(astTermExpression);
+      expect(astTermExpression.solve(), equals(-50));
+    });
     test('Verify 5/10', () {
       // Setting up the expression
       AstTermExpression astTermExpression = AstTermExpression.fromList([

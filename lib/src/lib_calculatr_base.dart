@@ -192,10 +192,13 @@ class AstTermAdd extends AstTermBinaryOperator {
 class AstTermSubtract extends AstTermBinaryOperator {
   @override
   num solve() {
-    prevTerm ??= AstTermNum(0);
-
     if (nextTerm == null) {
       throw MissingArgumentException();
+    }
+
+    if (prevTerm == null) {
+      // Using null check here as this assertion is satisfied by the preceeding conditional blocks.
+      return nextTerm!.solve() * (-1);
     }
 
     if (prevTerm is! AstTermNum && prevTerm is! AstTermExpression) {
