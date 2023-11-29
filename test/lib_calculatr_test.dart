@@ -2,15 +2,9 @@ import 'package:lib_calculatr/lib_calculatr.dart';
 import 'package:test/test.dart';
 
 void main() {
-  group('A group of tests', () {
-    final awesome = Awesome();
-
-    setUp(() {
-      // Additional setup goes here.
-    });
-
-    test('First Test', () {
-      expect(awesome.isAwesome, isTrue);
-    });
+  test('solve', () {
+    expect(solve('5*4'), equals(20));
+    expect(solve('(5)(4)'), equals(20));
+    expect(solve('(5)(4)/2'), equals(10));
   });
 }
