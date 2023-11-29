@@ -82,6 +82,15 @@ void checkSubtract() {
       astTermSubtract.nextTerm = AstTermNum(10);
       expect(astTermSubtract.solve(), equals(-5));
     });
+    test('Verify Implict 0', () {
+      AstTermSubtract astTermSubtract = AstTermSubtract();
+      expect(
+        () => astTermSubtract.solve(),
+        throwsA(isA<MissingArgumentException>()),
+      );
+      astTermSubtract.nextTerm = AstTermNum(10);
+      expect(astTermSubtract.solve(), equals(-10));
+    });
   });
 }
 
