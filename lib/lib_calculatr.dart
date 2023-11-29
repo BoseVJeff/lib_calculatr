@@ -6,11 +6,14 @@ library;
 import "src/lib_calculatr_base.dart"
     show AstTermExpression, Direction, OperatorPreccedence;
 
-num solve(String expression, [Direction direction = Direction.ltr]) =>
+// TODO: Export any libraries intended for clients of this package.
+export 'src/lib_calculatr_base.dart' show OperatorPreccedence, Direction;
+
+num solve(String expression,
+        {OperatorPreccedence operatorPreccedence = OperatorPreccedence.bodmas,
+        Direction direction = Direction.ltr}) =>
     AstTermExpression.fromString(
       expression,
       null,
-      OperatorPreccedence.bodmas.copyWith(direction: direction),
+      operatorPreccedence.copyWith(direction: direction),
     ).solve();
-
-// TODO: Export any libraries intended for clients of this package.
