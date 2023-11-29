@@ -138,7 +138,7 @@ abstract class AstTermBinaryOperator extends AstTerm {
     return newTerm;
   }
 
-  int get operatorHash;
+  int get operatorHash => toString().codeUnits.first;
 
   @override
   int get hashCode =>
@@ -187,9 +187,6 @@ class AstTermAdd extends AstTermBinaryOperator {
   String toString() {
     return '+';
   }
-
-  @override
-  int get operatorHash => 1;
 }
 
 class AstTermSubtract extends AstTermBinaryOperator {
@@ -224,9 +221,6 @@ class AstTermSubtract extends AstTermBinaryOperator {
   String toString() {
     return '-';
   }
-
-  @override
-  int get operatorHash => 2;
 }
 
 class AstTermMultiply extends AstTermBinaryOperator {
@@ -261,9 +255,6 @@ class AstTermMultiply extends AstTermBinaryOperator {
   String toString() {
     return '*';
   }
-
-  @override
-  int get operatorHash => 3;
 }
 
 class AstTermImplicitMultiply extends AstTermBinaryOperator {
@@ -298,9 +289,6 @@ class AstTermImplicitMultiply extends AstTermBinaryOperator {
   String toString() {
     return 'Impl*';
   }
-
-  @override
-  int get operatorHash => 4;
 }
 
 class AstTermDivide extends AstTermBinaryOperator {
@@ -335,9 +323,6 @@ class AstTermDivide extends AstTermBinaryOperator {
   String toString() {
     return '/';
   }
-
-  @override
-  int get operatorHash => 5;
 }
 
 class AstTermExpression extends AstTerm {
