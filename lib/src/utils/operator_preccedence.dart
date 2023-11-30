@@ -1,3 +1,6 @@
+import 'package:lib_calculatr/src/ast/base.dart';
+import 'package:lib_calculatr/src/utils/exceptions.dart';
+
 import '../ast/add.dart';
 import '../ast/divide.dart';
 import '../ast/expression.dart';
@@ -27,6 +30,32 @@ class OperatorPreccedence {
     ],
     direction: Direction.ltr,
   );
+
+  static const OperatorPreccedence bodmasReverse = OperatorPreccedence(
+    [
+      AstTermSubtract,
+      AstTermAdd,
+      AstTermMultiply,
+      AstTermDivide,
+      AstTermImplicitMultiply,
+      AstTermExpression,
+    ],
+    direction: Direction.ltr,
+  );
+
+  factory OperatorPreccedence.custom() => OperatorPreccedence([]);
+
+  void addOperator(Type operatorType) {
+    if (operatorType is! AstTerm) {
+      throw MistypedArgumentException(
+        message: 'Type must extend `AstTerm`',
+        actualType: operatorType,
+      );
+    }
+
+    assert(operatorType is AstTerm);
+    order.add(operatorType);
+  }
 
   OperatorPreccedence copyWith({
     List<Type>? order,
