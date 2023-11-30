@@ -3,11 +3,13 @@
 /// More dartdocs go here.
 library;
 
-import "src/lib_calculatr_base.dart"
-    show AstTermExpression, Direction, OperatorPreccedence;
+import "src/ast/expression.dart";
+import "src/utils/enums.dart";
+import "src/utils/operator_preccedence.dart";
 
 // TODO: Export any libraries intended for clients of this package.
-export 'src/lib_calculatr_base.dart' show OperatorPreccedence, Direction;
+export 'src/utils/operator_preccedence.dart' show OperatorPreccedence;
+export 'src/utils/enums.dart' show Direction;
 
 num solve(String expression,
         {OperatorPreccedence operatorPreccedence = OperatorPreccedence.bodmas,
