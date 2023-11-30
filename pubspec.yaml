@@ -1,7 +1,7 @@
 name: lib_calculatr
-description: A starting point for Dart libraries or applications.
+description: A simple ast-based math solver
 version: 1.0.0
-# repository: https://github.com/my_org/my_repo
+repository: https://github.com/BoseVJeff/lib_calculatr
 
 environment:
   sdk: ^3.1.4
